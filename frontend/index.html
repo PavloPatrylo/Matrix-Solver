@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Matrix Solver</h1>
+    </header>
+
+    <main>
+        <section id="auth-section">
+            <h2>Авторизація</h2>
+            <form id="register-form">
+                <h3>Реєстрація</h3>
+                <label for="reg-username">Ім'я користувача:</label>
+                <input type="text" id="reg-username" required>
+                <label for="reg-password">Пароль:</label>
+                <input type="password" id="reg-password" required>
+                <button type="submit">Зареєструватись</button>
+            </form>
+            <hr>
+            <form id="login-form">
+                <h3>Вхід</h3>
+                <label for="login-username">Ім'я користувача:</label>
+                <input type="text" id="login-username" required>
+                <label for="login-password">Пароль:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Увійти</button>
+            </form>
+            <div id="auth-error" class="error-message" style="display: none;"></div>
+        </section>
+
+        <section id="main-content" style="display: none;">
+            <div class="user-greeting">
+                <p>Вітаємо, <span id="username-display"></span>!</p>
+                <button id="logout-button">Вийти</button>
+            </div>
+            <hr>
+
+            <section id="create-task-section">
+                <h2>Створити нову задачу</h2>
+                <form id="task-form">
+                    <div class="input-method">
+                        <label>
+                            <input type="radio" name="input-type" value="keyboard" checked> Ввести вручну
+                        </label>
+                        <label>
+                            <input type="radio" name="input-type" value="file"> Завантажити .txt файл
+                        </label>
+                    </div>
+
+                    <div id="keyboard-input-area">
+                        <label for="matrix-data">Матриця A (рядки через Enter, числа через пробіл):</label>
+                        <textarea id="matrix-data" rows="5" required></textarea>
+                        <label for="vector-data">Вектор B (числа через пробіл):</label>
+                        <input type="text" id="vector-data" required>
+                    </div>
+
+                    <div id="file-input-area" style="display: none;">
+                        <label for="task-file">Виберіть .txt файл:</label>
+                        <input type="file" id="task-file" accept=".txt">
+                        <small>Файл має містити матрицю A, потім рядок "---", потім вектор B.</small>
+                    </div>
+
+                    <button type="submit">Відправити задачу</button>
+                </form>
+                <div id="task-create-error" class="error-message" style="display: none;"></div>
+            </section>
+
+            <hr>
+
+            <section id="active-tasks-section">
+                <h2>Активні задачі</h2>
+                <ul id="active-tasks-list"></ul>
+            </section>
+
+            <hr>
+
+             <button id="toggle-history-button">Показати історію</button>
+
+            <section id="history-section" style="display: none;">
+                <h2>Історія задач</h2>
+                <ul id="history-list">
+                    </ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Pavlo Patrylo project 2025 </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
